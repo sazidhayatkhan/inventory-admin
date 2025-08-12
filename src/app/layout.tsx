@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Layout from "@/components/Layout";
-
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export const metadata: Metadata = {
   title: "Inventory Management Admin",
@@ -15,12 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        <Layout>
-          {children}
-        </Layout>
+      <body className={`antialiased`}>
+        <SidebarProvider>
+          <AppSidebar />
+          <main>
+            <SidebarTrigger />
+            {children}
+          </main>
+        </SidebarProvider>
       </body>
     </html>
   );
