@@ -15,15 +15,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <body className="antialiased">
         <SidebarProvider>
-          <AppSidebar />
-          <main>
-            <SidebarTrigger />
-            {children}
-          </main>
+          <div className="flex h-screen w-screen">
+            <AppSidebar />
+            <main className="flex-1 p-4">
+              <SidebarTrigger />
+              {children}
+            </main>
+          </div>
         </SidebarProvider>
       </body>
     </html>
   );
 }
+
